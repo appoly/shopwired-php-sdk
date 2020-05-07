@@ -1,5 +1,5 @@
 # ShopWired PHP SDK
-PHP library to interact with ShopWired
+PHP library to interact with ShopWired - https://www.shopwired.co.uk/
 
 # Usage
 ## Installation
