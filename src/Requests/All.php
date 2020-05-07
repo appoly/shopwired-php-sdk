@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
-
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 
 trait All
 {
     /**
-     * Return a list of all objects
+     * Return a list of all objects.
      *
      * @param array $options - Options
      * @return array
@@ -17,7 +15,6 @@ trait All
     public static function all($options = [])
     {
         $shopwired_client = ShopWiredClient::get();
-
 
         dd(static::$endpoint);
         $response = $shopwired_client->get(static::$endpoint, [
