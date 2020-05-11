@@ -10,9 +10,10 @@ trait SubCreate
         create as protected _create;
     }
 
-    public static function create($parent_id, $data) {
+    public static function create($parent_id, $data)
+    {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint . "/$parent_id/" . self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
         self::_create($data);
     }
 }

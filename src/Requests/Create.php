@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
-
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 
 trait Create
 {
     /**
-     * Creates a new object
+     * Creates a new object.
      *
      * @param array $data - Fields for the object
      * @return array
@@ -18,7 +16,7 @@ trait Create
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response      = $shopwired_client->post(static::$endpoint, [
+        $response = $shopwired_client->post(static::$endpoint, [
             'headers' => [
                 'Content-Type' => 'application/json',
             ],

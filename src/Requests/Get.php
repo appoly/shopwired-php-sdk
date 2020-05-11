@@ -1,17 +1,15 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
-
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 
 trait Get
 {
     /**
-     * Return an object by ID
+     * Return an object by ID.
      *
-     * @param integer $id - Object ID
+     * @param int $id - Object ID
      * @param array $options - Options
      * @return array
      */
@@ -19,7 +17,7 @@ trait Get
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response = $shopwired_client->get(static::$endpoint . '/' . $id, [
+        $response = $shopwired_client->get(static::$endpoint.'/'.$id, [
             'query' => $options,
         ]);
 

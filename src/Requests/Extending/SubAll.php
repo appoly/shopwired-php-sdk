@@ -10,9 +10,10 @@ trait SubAll
         all as protected _all;
     }
 
-    public static function all($parent_id, $options = []) {
+    public static function all($parent_id, $options = [])
+    {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint . "/$parent_id/" . self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
         self::_all($options);
     }
 }

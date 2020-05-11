@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
@@ -8,9 +7,9 @@ use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 trait Update
 {
     /**
-     * Updates an object
+     * Updates an object.
      *
-     * @param integer $id - ID for the object
+     * @param int $id - ID for the object
      * @param array $data - Fields for the object
      * @return array
      */
@@ -18,7 +17,7 @@ trait Update
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response      = $shopwired_client->put(static::$endpoint . '/' . $id, [
+        $response = $shopwired_client->put(static::$endpoint.'/'.$id, [
             'headers' => [
                 'Content-Type' => 'application/json',
             ],

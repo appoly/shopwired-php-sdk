@@ -10,9 +10,10 @@ trait SubDelete
         delete as protected _delete;
     }
 
-    public static function delete($parent_id, $id) {
+    public static function delete($parent_id, $id)
+    {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint . "/$parent_id/" . self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
         self::_delete($id);
     }
 }

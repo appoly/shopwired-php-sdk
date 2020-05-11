@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
-
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 
 trait Count
 {
     /**
-     * Return a count of all objects
+     * Return a count of all objects.
      *
      * @param array $options - Options
      * @return array
@@ -18,7 +16,7 @@ trait Count
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response = $shopwired_client->get(static::$endpoint . '/count', [
+        $response = $shopwired_client->get(static::$endpoint.'/count', [
             'query' => $options,
         ]);
 
