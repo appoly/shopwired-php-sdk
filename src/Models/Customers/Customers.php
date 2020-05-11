@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Models\Customers;
 
 use Appoly\ShopWiredPHPSDK\Requests\All;

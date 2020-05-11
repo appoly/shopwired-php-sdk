@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK\Requests;
-
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
 
 trait All
 {
     /**
-     * Return a list of all objects
+     * Return a list of all objects.
      *
      * @param array $options - Options
      * @return array
