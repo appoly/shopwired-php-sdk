@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Appoly\ShopWiredPHPSDK\Models\Products;
+namespace Appoly\ShopWiredPHPSDK\Models\Categorisation;
 
 use Appoly\ShopWiredPHPSDK\Requests\All;
 use Appoly\ShopWiredPHPSDK\Requests\Count;

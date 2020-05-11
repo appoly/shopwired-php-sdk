@@ -18,8 +18,6 @@ trait All
     {
         $shopwired_client = ShopWiredClient::get();
 
-
-        dd(static::$endpoint);
         $response = $shopwired_client->get(static::$endpoint, [
             'query' => $options,
         ]);

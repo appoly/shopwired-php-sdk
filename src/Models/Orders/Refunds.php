@@ -1,6 +1,6 @@
 <?php
 
-namespace Appoly\ShopWiredPHPSDK\Models\Products;
+namespace Appoly\ShopWiredPHPSDK\Models\Orders;
 
 use Appoly\ShopWiredPHPSDK\Requests\Extending\SubAll;
 use Appoly\ShopWiredPHPSDK\Requests\Extending\SubCreate;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Appoly\ShopWiredPHPSDK\Models\Products;
+namespace Appoly\ShopWiredPHPSDK\Models\Filters;
 
 use Appoly\ShopWiredPHPSDK\Requests\All;
 
