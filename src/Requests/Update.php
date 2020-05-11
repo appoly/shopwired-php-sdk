@@ -18,8 +18,9 @@ trait Update
         $shopwired_client = ShopWiredClient::get();
 
         $endpoint = static::$endpoint;
-        if($id)
+        if ($id) {
             $endpoint = $endpoint.'/'.$id;
+        }
 
         $response = $shopwired_client->put($endpoint, [
             'headers' => [
