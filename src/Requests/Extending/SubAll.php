@@ -14,6 +14,6 @@ trait SubAll
     {
         $parent = new self::$extends;
         self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
-        self::_all($options);
+        return self::_all($options);
     }
 }

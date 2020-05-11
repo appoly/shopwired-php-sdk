@@ -14,6 +14,6 @@ trait SubUpdate
     {
         $parent = new self::$extends;
         self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
-        self::_update($id, $data);
+        return self::_update($id, $data);
     }
 }
