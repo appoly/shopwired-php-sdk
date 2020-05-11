@@ -17,7 +17,11 @@ trait Update
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response = $shopwired_client->put(static::$endpoint.'/'.$id, [
+        $endpoint = static::$endpoint;
+        if($id)
+            $endpoint = $endpoint.'/'.$id;
+
+        $response = $shopwired_client->put($endpoint, [
             'headers' => [
                 'Content-Type' => 'application/json',
             ],

@@ -17,7 +17,11 @@ trait Get
     {
         $shopwired_client = ShopWiredClient::get();
 
-        $response = $shopwired_client->get(static::$endpoint.'/'.$id, [
+        $endpoint = static::$endpoint;
+        if($id)
+            $endpoint = $endpoint.'/'.$id;
+
+        $response = $shopwired_client->get($endpoint, [
             'query' => $options,
         ]);
 
