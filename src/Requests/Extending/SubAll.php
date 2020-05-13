@@ -13,8 +13,12 @@ trait SubAll
     public static function all($parent_id, $options = [])
     {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
 
-        return self::_all($options);
+        $endpoint = self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
+        $response = self::_all($options);
+        self::$endpoint = $endpoint;
+
+        return $response;
     }
 }

@@ -13,8 +13,12 @@ trait SubCreate
     public static function create($parent_id, $data)
     {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
 
-        return self::_create($data);
+        $endpoint = self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
+        $response = self::_create($data);
+        self::$endpoint = $endpoint;
+
+        return $response;
     }
 }

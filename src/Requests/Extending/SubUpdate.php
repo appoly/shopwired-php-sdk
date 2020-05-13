@@ -13,8 +13,12 @@ trait SubUpdate
     public static function update($parent_id, $id, $data)
     {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
 
-        return self::_update($id, $data);
+        $endpoint = self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
+        $response = self::_update($id, $data);
+        self::$endpoint = $endpoint;
+
+        return $response;
     }
 }

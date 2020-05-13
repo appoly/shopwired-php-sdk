@@ -3,6 +3,7 @@
 namespace Appoly\ShopWiredPHPSDK\Requests;
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
+use Appoly\ShopWiredPHPSDK\ShopWiredThrottle;
 
 trait Delete
 {
@@ -13,6 +14,8 @@ trait Delete
      */
     public static function delete($id)
     {
+        ShopWiredThrottle::throttle();
+
         $shopwired_client = ShopWiredClient::get();
 
         $shopwired_client->delete(static::$endpoint.'/'.$id);

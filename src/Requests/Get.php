@@ -3,6 +3,7 @@
 namespace Appoly\ShopWiredPHPSDK\Requests;
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
+use Appoly\ShopWiredPHPSDK\ShopWiredThrottle;
 
 trait Get
 {
@@ -15,6 +16,8 @@ trait Get
      */
     public static function get($id, $options = [])
     {
+        ShopWiredThrottle::throttle();
+
         $shopwired_client = ShopWiredClient::get();
 
         $endpoint = static::$endpoint;

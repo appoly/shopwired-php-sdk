@@ -13,7 +13,10 @@ trait SubDelete
     public static function delete($parent_id, $id)
     {
         $parent = new self::$extends;
+
+        $endpoint = self::$endpoint;
         self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
         self::_delete($id);
+        self::$endpoint = $endpoint;
     }
 }

@@ -3,6 +3,7 @@
 namespace Appoly\ShopWiredPHPSDK\Requests;
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
+use Appoly\ShopWiredPHPSDK\ShopWiredThrottle;
 
 trait Update
 {
@@ -15,6 +16,8 @@ trait Update
      */
     public static function update($id, $data)
     {
+        ShopWiredThrottle::throttle();
+
         $shopwired_client = ShopWiredClient::get();
 
         $endpoint = static::$endpoint;

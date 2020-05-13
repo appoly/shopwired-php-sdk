@@ -13,8 +13,12 @@ trait SubGet
     public static function get($parent_id, $id)
     {
         $parent = new self::$extends;
-        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
 
-        return self::_get($id);
+        $endpoint = self::$endpoint;
+        self::$endpoint = $parent::$endpoint."/$parent_id/".self::$endpoint;
+        $response = self::_get($id);
+        self::$endpoint = $endpoint;
+
+        return $response;
     }
 }

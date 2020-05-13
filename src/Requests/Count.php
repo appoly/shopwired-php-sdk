@@ -3,6 +3,7 @@
 namespace Appoly\ShopWiredPHPSDK\Requests;
 
 use Appoly\ShopWiredPHPSDK\ShopWiredClient;
+use Appoly\ShopWiredPHPSDK\ShopWiredThrottle;
 
 trait Count
 {
@@ -14,6 +15,8 @@ trait Count
      */
     public static function count($options = [])
     {
+        ShopWiredThrottle::throttle();
+
         $shopwired_client = ShopWiredClient::get();
 
         $response = $shopwired_client->get(static::$endpoint.'/count', [
