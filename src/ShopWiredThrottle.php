@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Appoly\ShopWiredPHPSDK;
 
 use Redis;
@@ -28,8 +27,9 @@ class ShopWiredThrottle
         $recentEvents = self::getRecentEvents();
         //dump("Bucket count " . count($recentEvents));
 
-        if(count($recentEvents) >= self::BUCKET_SIZE)
+        if (count($recentEvents) >= self::BUCKET_SIZE) {
             return true;
+        }
 
         return false;
     }
@@ -44,14 +44,13 @@ class ShopWiredThrottle
     public static function leakEvents()
     {
         $lastLeaked = (float) self::cacheGet('shopwired_last_leaked');
-        if($lastLeaked && $lastLeaked >= (microtime(true) - 1)) {
+        if ($lastLeaked && $lastLeaked >= (microtime(true) - 1)) {
             return;
         }
 
-
         $lastLeakedSecondsAgo = (int) floor(microtime(true) - $lastLeaked);
 
-        foreach(range(1, $lastLeakedSecondsAgo) as $leakEachSecond) {
+        foreach (range(1, $lastLeakedSecondsAgo) as $leakEachSecond) {
             //dump("Leaking " . $lastLeakedSecondsAgo);
             $recentEvents = self::getRecentEvents();
 
@@ -61,41 +60,47 @@ class ShopWiredThrottle
         }
     }
 
-    public static function getRecentEvents() {
+    public static function getRecentEvents()
+    {
         $recentEvents = json_decode(self::cacheGet('shopwired_events'));
         $recentEvents = $recentEvents ? $recentEvents : [];
 
         return $recentEvents;
     }
 
-    public static function cacheGet($key) {
+    public static function cacheGet($key)
+    {
         $redis = new Redis();
         $redis->connect('127.0.0.1', 6379);
 
         return $redis->get($key);
     }
 
-    public static function cacheSet($key, $value) {
+    public static function cacheSet($key, $value)
+    {
         $redis = new Redis();
         $redis->connect('127.0.0.1', 6379);
 
         $redis->set($key, $value);
     }
 
-    public static function redisConnect() {
+    public static function redisConnect()
+    {
         try {
             $redis = new Redis();
             $redis->connect('127.0.0.1', 6379);
-        } catch(\Exception $e) {
-            throw new \Exception("ShopWired: Error connecting to redis for request throttling. Please add ShopWiredThrottle::disable();", 500);
+        } catch (\Exception $e) {
+            throw new \Exception('ShopWired: Error connecting to redis for request throttling. Please add ShopWiredThrottle::disable();', 500);
         }
     }
 
-    public static function disable() {
+    public static function disable()
+    {
         self::$enabled = false;
     }
 
-    public static function enable() {
+    public static function enable()
+    {
         self::$enabled = true;
     }
 }
