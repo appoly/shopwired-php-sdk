@@ -6,7 +6,7 @@ use Redis;
 
 class ShopWiredThrottle
 {
-    const BUCKET_SIZE = 60;
+    const BUCKET_SIZE = 40;
     const DRAIN_PER_SECOND = 2;
 
     private static $enabled = true;
