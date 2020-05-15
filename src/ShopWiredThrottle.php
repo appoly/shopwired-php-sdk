@@ -50,6 +50,13 @@ class ShopWiredThrottle
 
         $lastLeakedSecondsAgo = (int) floor(microtime(true) - $lastLeaked);
 
+        if($lastLeakedSecondsAgo > self::BUCKET_SIZE) {
+            self::cacheSet('shopwired_events', json_encode([]));
+            self::cacheSet('shopwired_last_leaked', microtime(true));
+
+            return;
+        }
+
         foreach (range(1, $lastLeakedSecondsAgo) as $leakEachSecond) {
             //dump("Leaking " . $lastLeakedSecondsAgo);
             $recentEvents = self::getRecentEvents();
