@@ -11,7 +11,7 @@ use Appoly\ShopWiredPHPSDK\Requests\Update;
 
 class Orders
 {
-    use All, Count, Get, Create, Delete;
+    use All, Count, Get, Create, Delete, Update;
 
     public static $endpoint = '/v1/orders';
 }
